@@ -17,7 +17,9 @@ rectangle			{ printf("RECTANGLE "); return RECTANGLE; }
 set_color			{ printf("SET_COLOR "); return SET_COLOR; }
 [0-9]+[.][0-9]+			{ printf("FLOAT "); yylval.f = atof(yytext); return FLOAT; }
 [0-9]+				{ printf("INT "); yylval.i = atoi(yytext); return INT; }
-[ \t\n]				;
+[ ]				{ printf(" "); }
+\t				{ printf("\t"); }
+\n				{ printf("\n"); }
 .				{ printf("[Invalid token] "); }
 
 %%
