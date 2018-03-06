@@ -28,17 +28,17 @@
 %%
 
 program:	END		{exit(EXIT_SUCCESS);} /* https://www.youtube.com/watch?v=__-wUHG2rfM */
-		|	stmt_list
-		|	stmt_list END	{exit(EXIT_SUCCESS);}
+	|	stmt_list
+	|	stmt_list END	{exit(EXIT_SUCCESS);}
 
 stmt_list:	stmt
-		|	stmt stmt_list
+	|	stmt stmt_list
 
 stmt:		point_cmd 
-		|	line_cmd
-		|	circle_cmd
-		|	rectangle_cmd
-		|	set_color_cmd
+	|	line_cmd
+	|	circle_cmd
+	|	rectangle_cmd
+	|	set_color_cmd
 
 point_cmd:	POINT INT INT END_STMT
 		{
