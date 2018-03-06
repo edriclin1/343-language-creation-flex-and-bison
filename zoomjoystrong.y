@@ -1,9 +1,28 @@
+/**
+* Bison file to define grammar of Zoomjoystrong language.
+* 
+* @author Edric Lin
+* @author Austin Maley
+* @version 3/5/2018
+*/
+
 %{
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include "zoomjoystrong.h"
 
+	/**
+	* Print interpreter errors.
+	*
+	* @param msg the error message to print.
+	*/
 	void yyerror(const char* msg);
+
+	/**
+	* Called to invoke the lexer (or scanner).
+	*
+	* @return 1
+	*/
 	int yylex();
 %}
 
@@ -88,7 +107,13 @@ set_color_cmd:	SET_COLOR INT INT INT END_STMT
 			}
 		};
 %%
- 
+
+/**
+* Run the interpreter for Zoomjoystrong.
+*
+* @param argc number of command line arguments
+* @param argv command line arguments
+*/
 int main(int argc, char** argv){
 	setup();
 	yyparse();
@@ -96,6 +121,11 @@ int main(int argc, char** argv){
 	return 0;
 }
 
+/**
+* Print interpreter errors.
+*
+* @param msg the error message to print.
+*/
 void yyerror(const char* msg){
 	fprintf(stderr, "ERROR! %s\n", msg);
 }

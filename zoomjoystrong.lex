@@ -1,3 +1,11 @@
+/**
+* Flex file to define tokens of Zoomjoystrong language.
+* 
+* @author Edric Lin
+* @author Austin Maley
+* @version 3/5/2018
+*/
+
 %{
 	#include "zoomjoystrong.tab.h"
 	#include <stdio.h>
