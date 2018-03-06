@@ -27,20 +27,20 @@
 
 %%
 
-program:		END		{exit(EXIT_SUCCESS);} /* https://www.youtube.com/watch?v=__-wUHG2rfM */
-	|	stmt_list
-	|	stmt_list END	{exit(EXIT_SUCCESS);}
+program:	END		{exit(EXIT_SUCCESS);} /* https://www.youtube.com/watch?v=__-wUHG2rfM */
+		|	stmt_list
+		|	stmt_list END	{exit(EXIT_SUCCESS);}
 
-stmt_list:		stmt
-	|	stmt stmt_list
+stmt_list:	stmt
+		|	stmt stmt_list
 
 stmt:		point_cmd 
-	|	line_cmd
-	|	circle_cmd
-	|	rectangle_cmd
-	|	set_color_cmd
+		|	line_cmd
+		|	circle_cmd
+		|	rectangle_cmd
+		|	set_color_cmd
 
-point_cmd:		POINT INT INT END_STMT
+point_cmd:	POINT INT INT END_STMT
 		{
 			if ($2 >= 0 && $2 <= WIDTH && $3 >= 0 && $3 <= HEIGHT) {
 				point($2, $3);
@@ -50,7 +50,7 @@ point_cmd:		POINT INT INT END_STMT
 		};
 
 
-line_cmd:		LINE INT INT INT INT END_STMT
+line_cmd:	LINE INT INT INT INT END_STMT
 		{
 			if ($2 >= 0 && $2 <= WIDTH && $3 >= 0 && $3 <= HEIGHT &&
 				$4 >= 0 && $4 <= WIDTH && $5 >= 0 && $5 <= HEIGHT) {
